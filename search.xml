@@ -1,27 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title>DeepSeek 学习手册</title>
-    <url>/2025/02/11/DeepSeek-%E5%AD%A6%E4%B9%A0%E6%89%8B%E5%86%8C/</url>
-    <content><![CDATA[<h2 id="API-搭建知识库"><a href="#API-搭建知识库" class="headerlink" title="API 搭建知识库"></a>API 搭建知识库</h2><p>如果本地数据不涉密,还想获得最佳使用效果,那肯定得选满1血的DeepSeekR1模型。<br>我们来看看怎么利用API用上满血的R1模型(671B)。</p>
-<p>1、先下载一个叫Cherry Studio的软件。<br>地址: <a href="https://cherry-ai.com/download">https://cherry-ai.com/download</a></p>
-<p><img src="http://maikoushuo.oss-cn-beijing.aliyuncs.com/DeepSeek-image.png" alt="image"></p>
-<p>2、登录&#x2F;注册「硅基流动」,新用户会赠送2000万Token额度。<br>地址: <a href="https://cloud.siliconflow.cn/i/S97XY4rE">https://cloud.siliconflow.cn/i/S97XY4rE</a><br><img src="http://maikoushuo.oss-cn-beijing.aliyuncs.com/DeepSeek-image-1.png" alt="image"></p>
-<p>3、来到API密钥生成界面,创建或者复制已有的密钥。<br><img src="http://maikoushuo.oss-cn-beijing.aliyuncs.com/DeepSeek-image-2.png" alt="image"></p>
-<p>4、来到CherryStudio,配置 API Key。<br><img src="http://maikoushuo.oss-cn-beijing.aliyuncs.com/DeepSeek-image-3.png" alt="image"></p>
-<p>5、在「硅基流动」模型广场首页,排在前两位的就是「硅基流动」和「华为云」合作发布的DeepSeek R1&#x2F;V3模型。<br>如果需要推理能力,记得打开并复制R1模型的名称。<br>在「Cherry Studio」模型服务的硅基流动下方,添加相应模型。<br><img src="http://maikoushuo.oss-cn-beijing.aliyuncs.com/DeepSeek-image-4.png" alt="image"></p>
-<p>6、现在对话模型有了R1,还缺少一个嵌入模型。</p>
-<p>嵌入模型的主要作用是将本地文件的内容转换成有意义的数字,存储到向量数据库中。<br>在用户提问时,利用RAG技术在数据库中搜索到相似答案最终回复用户。<br>我们再配置一个向量模型:BAAI&#x2F;bge-m3,如果希望搜索的精准度更高,可以选择Pro&#x2F;BAAI&#x2F;bge-m3。<br><img src="http://maikoushuo.oss-cn-beijing.aliyuncs.com/DeepSeek-image-5.png" alt="image"></p>
-<p>7、在「Cherry Studio」创建知识库,选择刚才配置的嵌入模型,这样就会自动利用对应的模型来向量化数据。<br><img src="http://maikoushuo.oss-cn-beijing.aliyuncs.com/DeepSeek-image-6.png" alt="image"></p>
-<p>8、上传本地文件进行向量化。<br>如果本地PDF文件是扫描件、手写件,或者带有复杂的表格和数学公式,解析效果会很差,甚至无法解析。<br>这样才可以正常回复知识库的内容:</p>
-<p>如果追求执行比,推荐使用Doc2x:<a href="https://doc2x.noedgeai.ccom/?inviteCode=4A6KOD">https://doc2x.noedgeai.ccom?inviteCode=4A6KOD</a><br>如果希望更加稳定,那么可以考虑Textin:<a href="https://www.textin.com/market/detail/pdf_to_markdown">https://www.textin.com/market/detail/pdf_to_markdown</a><br>当我们上传文件后,箭头指向的图标如图所示,则代表向量量化成功。<br><img src="http://maikoushuo.oss-cn-beijing.aliyuncs.com/DeepSeek-image-7.png" alt="image"></p>
-<p>9、测试使用,这一步添加助手,并选择刚配置的满血R1模型。<br><img src="http://maikoushuo.oss-cn-beijing.aliyuncs.com/DeepSeek-image-8.png" alt="image"></p>
-]]></content>
-      <tags>
-        <tag>AI</tag>
-      </tags>
-  </entry>
-  <entry>
     <title>2017 总结</title>
     <url>/2018/02/26/2017%E6%80%BB%E7%BB%93/</url>
     <content><![CDATA[<p>2017年走过很多城市，重庆，西宁，西藏，西安，舟山，宁波，温州和北京。这一年，从臻至到端点，离开待了一年多的臻至，西湖、拱墅、西湖、余杭，历时7年，终归选择回滨江。</p>
@@ -102,6 +81,41 @@
       </tags>
   </entry>
   <entry>
+    <title>DeepSeek 学习手册</title>
+    <url>/2025/02/11/DeepSeek-%E5%AD%A6%E4%B9%A0%E6%89%8B%E5%86%8C/</url>
+    <content><![CDATA[<h2 id="API-搭建知识库"><a href="#API-搭建知识库" class="headerlink" title="API 搭建知识库"></a>API 搭建知识库</h2><p>如果本地数据不涉密,还想获得最佳使用效果,那肯定得选满1血的DeepSeekR1模型。<br>我们来看看怎么利用API用上满血的R1模型(671B)。</p>
+<p>1、先下载一个叫Cherry Studio的软件。<br>地址: <a href="https://cherry-ai.com/download">https://cherry-ai.com/download</a></p>
+<p><img src="http://maikoushuo.oss-cn-beijing.aliyuncs.com/DeepSeek-image.png" alt="image"></p>
+<p>2、登录&#x2F;注册「硅基流动」,新用户会赠送2000万Token额度。<br>地址: <a href="https://cloud.siliconflow.cn/i/S97XY4rE">https://cloud.siliconflow.cn/i/S97XY4rE</a><br><img src="http://maikoushuo.oss-cn-beijing.aliyuncs.com/DeepSeek-image-1.png" alt="image"></p>
+<p>3、来到API密钥生成界面,创建或者复制已有的密钥。<br><img src="http://maikoushuo.oss-cn-beijing.aliyuncs.com/DeepSeek-image-2.png" alt="image"></p>
+<p>4、来到CherryStudio,配置 API Key。<br><img src="http://maikoushuo.oss-cn-beijing.aliyuncs.com/DeepSeek-image-3.png" alt="image"></p>
+<p>5、在「硅基流动」模型广场首页,排在前两位的就是「硅基流动」和「华为云」合作发布的DeepSeek R1&#x2F;V3模型。<br>如果需要推理能力,记得打开并复制R1模型的名称。<br>在「Cherry Studio」模型服务的硅基流动下方,添加相应模型。<br><img src="http://maikoushuo.oss-cn-beijing.aliyuncs.com/DeepSeek-image-4.png" alt="image"></p>
+<p>6、现在对话模型有了R1,还缺少一个嵌入模型。</p>
+<p>嵌入模型的主要作用是将本地文件的内容转换成有意义的数字,存储到向量数据库中。<br>在用户提问时,利用RAG技术在数据库中搜索到相似答案最终回复用户。<br>我们再配置一个向量模型:BAAI&#x2F;bge-m3,如果希望搜索的精准度更高,可以选择Pro&#x2F;BAAI&#x2F;bge-m3。<br><img src="http://maikoushuo.oss-cn-beijing.aliyuncs.com/DeepSeek-image-5.png" alt="image"></p>
+<p>7、在「Cherry Studio」创建知识库,选择刚才配置的嵌入模型,这样就会自动利用对应的模型来向量化数据。<br><img src="http://maikoushuo.oss-cn-beijing.aliyuncs.com/DeepSeek-image-6.png" alt="image"></p>
+<p>8、上传本地文件进行向量化。<br>如果本地PDF文件是扫描件、手写件,或者带有复杂的表格和数学公式,解析效果会很差,甚至无法解析。<br>这样才可以正常回复知识库的内容:</p>
+<p>如果追求执行比,推荐使用Doc2x:<a href="https://doc2x.noedgeai.ccom/?inviteCode=4A6KOD">https://doc2x.noedgeai.ccom?inviteCode=4A6KOD</a><br>如果希望更加稳定,那么可以考虑Textin:<a href="https://www.textin.com/market/detail/pdf_to_markdown">https://www.textin.com/market/detail/pdf_to_markdown</a><br>当我们上传文件后,箭头指向的图标如图所示,则代表向量量化成功。<br><img src="http://maikoushuo.oss-cn-beijing.aliyuncs.com/DeepSeek-image-7.png" alt="image"></p>
+<p>9、测试使用,这一步添加助手,并选择刚配置的满血R1模型。<br><img src="http://maikoushuo.oss-cn-beijing.aliyuncs.com/DeepSeek-image-8.png" alt="image"></p>
+]]></content>
+      <tags>
+        <tag>AI</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>Hexo 笔记</title>
+    <url>/2025/02/13/hexo-%E7%AC%94%E8%AE%B0/</url>
+    <content><![CDATA[<h2 id="Pages"><a href="#Pages" class="headerlink" title="Pages"></a>Pages</h2><p>创建 git 的 repository，在settings中，pages 中可以设置自定义域名，比如 maikoTalks.cn。<br>域名需要做域名解析，解析到 github 的 地址，比如 maiko.github.io。</p>
+<h2 id="CNAME"><a href="#CNAME" class="headerlink" title="CNAME"></a>CNAME</h2><p>问题：直接在github库中添加CNAME文件，发现每次执行hexo d之后，CNAME文件就被覆盖<br>回答：不能直接在库中添加CNAME文件，直接在项目的source文件夹中添加CNAME文件，和在库中添加一样你的域名，之后执行<br>hexo clean<br>hexo g<br>hexo d</p>
+<h2 id="添加README-md"><a href="#添加README-md" class="headerlink" title="添加README.md"></a>添加README.md</h2><p>问题：添加README.md后，执行hexo d后，README.md文件没有被渲染<br>回答：修改hexo项目的_config.yml文件，将skip_render参数的值设置上。skip_render: README.md，保存退出即可。<br>使用hexo d 命令就不会在渲染 README.md 这个文件。</p>
+]]></content>
+      <categories>
+        <category>技术笔记</category>
+      </categories>
+      <tags>
+        <tag>hexo</tag>
+      </tags>
+  </entry>
+  <entry>
     <title>2018 总结 - 为爱而生</title>
     <url>/2019/05/22/2018%E6%80%BB%E7%BB%93/</url>
     <content><![CDATA[<p>18年早已过去，崭新的19年也已过了1&#x2F;4，按照国际惯例，一年一度的总结过去计划未来的日子早就应该到来，如今却姗姗来迟。</p>
@@ -127,55 +141,6 @@
 ]]></content>
       <tags>
         <tag>总结</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>Hexo 笔记</title>
-    <url>/2025/02/13/hexo-%E7%AC%94%E8%AE%B0/</url>
-    <content><![CDATA[<h2 id="Pages"><a href="#Pages" class="headerlink" title="Pages"></a>Pages</h2><p>创建 git 的 repository，在settings中，pages 中可以设置自定义域名，比如 maikoTalks.cn。<br>域名需要做域名解析，解析到 github 的 地址，比如 maiko.github.io。</p>
-<h2 id="CNAME"><a href="#CNAME" class="headerlink" title="CNAME"></a>CNAME</h2><p>问题：直接在github库中添加CNAME文件，发现每次执行hexo d之后，CNAME文件就被覆盖<br>回答：不能直接在库中添加CNAME文件，直接在项目的source文件夹中添加CNAME文件，和在库中添加一样你的域名，之后执行<br>hexo clean<br>hexo g<br>hexo d</p>
-<h2 id="添加README-md"><a href="#添加README-md" class="headerlink" title="添加README.md"></a>添加README.md</h2><p>问题：添加README.md后，执行hexo d后，README.md文件没有被渲染<br>回答：修改hexo项目的_config.yml文件，将skip_render参数的值设置上。skip_render: README.md，保存退出即可。<br>使用hexo d 命令就不会在渲染 README.md 这个文件。</p>
-]]></content>
-      <categories>
-        <category>技术笔记</category>
-      </categories>
-      <tags>
-        <tag>hexo</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>当浓缩接触到冰水，如此迷人</title>
-    <url>/2019/05/24/%E5%BD%93%E6%B5%93%E7%BC%A9%E6%8E%A5%E8%A7%A6%E5%88%B0%E5%86%B0%E6%B0%B4%EF%BC%8C%E5%A6%82%E6%AD%A4%E8%BF%B7%E4%BA%BA/</url>
-    <content><![CDATA[<h2 id=""><a href="#" class="headerlink" title=""></a></h2><p>平时不怎么喝咖啡，如果喝那肯定就是美式了，那是简单即美味，萃取经典浓缩咖啡，以水调和，香气浓郁蔓溢。</p>
-<h4 id="冰美式-Americano"><a href="#冰美式-Americano" class="headerlink" title="冰美式 Americano"></a>冰美式 Americano</h4><p>热美式冷了会变酸，温度的改变会影响咖啡的酸度，所以在炎炎夏日，肯定是想来一杯沁凉畅快的冰美式。<br>冰美式没有热美式那么多花哨的名字，区别就在于冰的多少。</p>
-<p>冰美式又不同于热美式，不那么苦；而且浓缩加到杯子里只跟水混合，所以随着时间会慢慢的变淡。没想到当浓缩咖啡接触到冰水，竟然如此迷人。</p>
-<p>还有一种更“冷酷”的方式：在杯子里加满冰块，然后直接把炽热的浓缩咖啡液浇在冰块上。当冰块慢慢融化，咖啡味道也随之由浓转淡，呈现出更多细致的风味</p>
-]]></content>
-      <tags>
-        <tag>随笔</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>产品经理AI助手</title>
-    <url>/2025/02/26/%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%86AI%E5%8A%A9%E6%89%8B/</url>
-    <content><![CDATA[]]></content>
-      <tags>
-        <tag>AI</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title>幸福密码，“拥有有趣的灵魂，做有趣的人”</title>
-    <url>/2025/02/26/%E5%B9%B8%E7%A6%8F%E5%AF%86%E7%A0%81%EF%BC%8C%E6%9C%89%E8%B6%A3%E7%9A%84%E7%81%B5%E9%AD%82%E5%81%9A%E6%9C%89%E8%B6%A3%E7%9A%84%E4%BA%BA/</url>
-    <content><![CDATA[<p>在喧嚣纷扰的尘世中，我们常常奔波忙碌，追逐着各种目标，却在不经意间忽略了生活的本质 —— 幸福。</p>
-<h2 id="1、有趣的灵魂：点亮生活的火花"><a href="#1、有趣的灵魂：点亮生活的火花" class="headerlink" title="1、有趣的灵魂：点亮生活的火花"></a>1、有趣的灵魂：点亮生活的火花</h2><p>林语堂先生说：“幸福的生活中，一定少不了幽默。” 一个有趣的灵魂，就如同黑暗中的一束光，照亮生活的每一个角落。它能让平淡的日子变得生动有趣，让艰难的时刻充满希望与勇气。<br>在林语堂的笔下，我们看到了他对生活的独特观察与幽默表达，无论是对人性的洞察，还是对社会现象的调侃，都充满了智慧与趣味。<br>拥有有趣的灵魂，不是刻意去制造笑料，而是在面对生活的种种时，保持一颗乐观、豁达的心，用幽默的态度去化解矛盾与困境，让生活充满欢声笑语。<br>正如林语堂所言：“有趣的人，总能从困境中笑着走出来。” 这样的人，无论身处何地，都能成为生活的主角，用自己的光芒感染身边的人，让幸福在人群中传递。</p>
-<h2 id="2、简单的热爱：回归生活的本真"><a href="#2、简单的热爱：回归生活的本真" class="headerlink" title="2、简单的热爱：回归生活的本真"></a>2、简单的热爱：回归生活的本真</h2><p>在这个物欲横流的时代，我们常常被各种欲望所困扰，追求着更多的财富、更高的地位、更大的名气，却忘记了生活中那些最简单、最纯粹的美好。<br>林语堂先生却懂得在平凡的生活中寻找乐趣，饮茶、读书、写作，这些看似普通的小事，却成为了他生活中不可或缺的一部分，也让他从中获得了无尽的满足与幸福。<br>他说：“幸福是一种对平凡生活的深深喜爱。” 当我们拥有一份简单的热爱时，就会发现生活中的每一个瞬间都充满了意义。一杯香茗，一本好书，一片落日余晖，都能让我们感受到生活的美好与宁静。<br>这种简单的热爱，让我们回归生活的本真，不再被外界的喧嚣所干扰，用心去感受生活的每一个细节，用爱去拥抱生活的每一份馈赠，从而收获真正的幸福。</p>
-<h2 id="3、淡然的心态：拥抱生活的自由"><a href="#3、淡然的心态：拥抱生活的自由" class="headerlink" title="3、淡然的心态：拥抱生活的自由"></a>3、淡然的心态：拥抱生活的自由</h2><p>林语堂一生追求 “无用之美”，他不为名利所累，不被世俗所束缚，以一种淡然的心态面对生活中的种种。他认为，幸福不需要刻意去追逐，而是要学会 “随遇而安”。<br>当我们拥有一种淡然的心态时，就能以平和的心境去看待生活中的起起落落，用从容的态度去应对生活中的风风雨雨。正如林语堂所说：“心态放平，生活就会多一分自在。” 这样的我们，才能真正成为生活的主人，享受生活的每一刻。</p>
-<h2 id="4、小题大做：创造生活的惊喜"><a href="#4、小题大做：创造生活的惊喜" class="headerlink" title="4、小题大做：创造生活的惊喜"></a>4、小题大做：创造生活的惊喜</h2><p>林语堂常常把生活的 “小题” 当作 “大事” 来做，这种 “小题大做” 的态度，让他的生活充满了惊喜与乐趣。<br>他会为一壶茶的香气而陶醉，为一本书中的精彩篇章而欢呼，为一片夕阳的美丽而驻足。<br>在我们看似平凡无奇的生活中，其实也蕴含着无数的小美好，只是我们常常忽略了它们的存在。<br>如果我们能像林语堂一样，用心去发现生活中的这些小细节，并将它们当作大事来对待，那么我们的生活也会变得丰富多彩。为了一顿美味的早餐，精心挑选食材，用心烹饪；为了一个小小的梦想，全力以赴，努力拼搏；为了与家人朋友的一次相聚，认真准备，尽情享受。<br>当我们把生活中的每一件小事都当作大事来做时，就会发现，幸福其实就在我们身边，触手可及。</p>
-<h2 id="5、平衡现实与理想：奏响生活的乐章"><a href="#5、平衡现实与理想：奏响生活的乐章" class="headerlink" title="5、平衡现实与理想：奏响生活的乐章"></a>5、平衡现实与理想：奏响生活的乐章</h2><p>林语堂很聪明，他既懂得享受生活，又能应对世俗的压力。他从不被理想主义困住，而是将理想融入现实，找到了属于自己的生活节奏和步伐。<br>在现实生活中，我们常常面临着理想与现实的矛盾与冲突。一方面，我们有着美好的理想和憧憬，渴望实现自己的人生价值；另一方面，现实的压力却让我们不得不低头妥协。<br>而林语堂的人生哲学告诉我们，现实和理想并不对立，它们是幸福的两翼。我们不能只沉浸在理想的世界中，不顾现实的困境；也不能为了现实的利益，放弃自己的理想。只有将理想与现实相结合，找到它们之间的平衡点，才能让自己的生活更加充实和有意义。<br>就像林语堂一样，在追求文学梦想的同时，也能在现实生活中找到乐趣和满足，用智慧去平衡现实与理想，奏响属于自己的生活乐章。</p>
-<h2 id="6、发现美：感悟生活的幸福"><a href="#6、发现美：感悟生活的幸福" class="headerlink" title="6、发现美：感悟生活的幸福"></a>6、发现美：感悟生活的幸福</h2><p>林语堂说过：“最懂幸福的人，不是拥有最多的人，而是能发现最多美的人。” 在我们的生活中，美无处不在，只是需要我们用心去发现。<br>一片叶子的飘落，一朵花儿的绽放，一段温暖的话语，一个善意的微笑，都是生活中的美好瞬间。当我们拥有一双发现美的眼睛时，就会发现，幸福其实很简单，它就在我们身边的每一个角落。<br>那些能够在平凡中发现美的人，总是能感受到更多的幸福。因为他们懂得珍惜生活中的每一份美好，用心去感悟生活的点滴，用爱去温暖自己的心灵。<br>正如林语堂所说：“幸福不是拥有，而是发现和感知。” 让我们学会像林语堂一样，用心去发现生活中的美，用爱去感悟生活的幸福，让自己的生活充满诗意与美好。<br>在这个快节奏的时代，让我们停下匆忙的脚步，去拥有一个有趣的灵魂，一份简单的热爱，一种淡然的心态，学会小题大做，用智慧平衡现实与理想，用心去发现生活中的美。<br>相信在不久的将来，我们都能找到属于自己的幸福密码，开启一段充满诗意与美好的人生旅程。</p>
-]]></content>
-      <tags>
-        <tag>人生智慧</tag>
       </tags>
   </entry>
   <entry>
@@ -237,6 +202,41 @@
       </categories>
       <tags>
         <tag>AI</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>幸福密码，“拥有有趣的灵魂，做有趣的人”</title>
+    <url>/2025/02/26/%E5%B9%B8%E7%A6%8F%E5%AF%86%E7%A0%81%EF%BC%8C%E6%9C%89%E8%B6%A3%E7%9A%84%E7%81%B5%E9%AD%82%E5%81%9A%E6%9C%89%E8%B6%A3%E7%9A%84%E4%BA%BA/</url>
+    <content><![CDATA[<p>在喧嚣纷扰的尘世中，我们常常奔波忙碌，追逐着各种目标，却在不经意间忽略了生活的本质 —— 幸福。</p>
+<h2 id="1、有趣的灵魂：点亮生活的火花"><a href="#1、有趣的灵魂：点亮生活的火花" class="headerlink" title="1、有趣的灵魂：点亮生活的火花"></a>1、有趣的灵魂：点亮生活的火花</h2><p>林语堂先生说：“幸福的生活中，一定少不了幽默。” 一个有趣的灵魂，就如同黑暗中的一束光，照亮生活的每一个角落。它能让平淡的日子变得生动有趣，让艰难的时刻充满希望与勇气。<br>在林语堂的笔下，我们看到了他对生活的独特观察与幽默表达，无论是对人性的洞察，还是对社会现象的调侃，都充满了智慧与趣味。<br>拥有有趣的灵魂，不是刻意去制造笑料，而是在面对生活的种种时，保持一颗乐观、豁达的心，用幽默的态度去化解矛盾与困境，让生活充满欢声笑语。<br>正如林语堂所言：“有趣的人，总能从困境中笑着走出来。” 这样的人，无论身处何地，都能成为生活的主角，用自己的光芒感染身边的人，让幸福在人群中传递。</p>
+<h2 id="2、简单的热爱：回归生活的本真"><a href="#2、简单的热爱：回归生活的本真" class="headerlink" title="2、简单的热爱：回归生活的本真"></a>2、简单的热爱：回归生活的本真</h2><p>在这个物欲横流的时代，我们常常被各种欲望所困扰，追求着更多的财富、更高的地位、更大的名气，却忘记了生活中那些最简单、最纯粹的美好。<br>林语堂先生却懂得在平凡的生活中寻找乐趣，饮茶、读书、写作，这些看似普通的小事，却成为了他生活中不可或缺的一部分，也让他从中获得了无尽的满足与幸福。<br>他说：“幸福是一种对平凡生活的深深喜爱。” 当我们拥有一份简单的热爱时，就会发现生活中的每一个瞬间都充满了意义。一杯香茗，一本好书，一片落日余晖，都能让我们感受到生活的美好与宁静。<br>这种简单的热爱，让我们回归生活的本真，不再被外界的喧嚣所干扰，用心去感受生活的每一个细节，用爱去拥抱生活的每一份馈赠，从而收获真正的幸福。</p>
+<h2 id="3、淡然的心态：拥抱生活的自由"><a href="#3、淡然的心态：拥抱生活的自由" class="headerlink" title="3、淡然的心态：拥抱生活的自由"></a>3、淡然的心态：拥抱生活的自由</h2><p>林语堂一生追求 “无用之美”，他不为名利所累，不被世俗所束缚，以一种淡然的心态面对生活中的种种。他认为，幸福不需要刻意去追逐，而是要学会 “随遇而安”。<br>当我们拥有一种淡然的心态时，就能以平和的心境去看待生活中的起起落落，用从容的态度去应对生活中的风风雨雨。正如林语堂所说：“心态放平，生活就会多一分自在。” 这样的我们，才能真正成为生活的主人，享受生活的每一刻。</p>
+<h2 id="4、小题大做：创造生活的惊喜"><a href="#4、小题大做：创造生活的惊喜" class="headerlink" title="4、小题大做：创造生活的惊喜"></a>4、小题大做：创造生活的惊喜</h2><p>林语堂常常把生活的 “小题” 当作 “大事” 来做，这种 “小题大做” 的态度，让他的生活充满了惊喜与乐趣。<br>他会为一壶茶的香气而陶醉，为一本书中的精彩篇章而欢呼，为一片夕阳的美丽而驻足。<br>在我们看似平凡无奇的生活中，其实也蕴含着无数的小美好，只是我们常常忽略了它们的存在。<br>如果我们能像林语堂一样，用心去发现生活中的这些小细节，并将它们当作大事来对待，那么我们的生活也会变得丰富多彩。为了一顿美味的早餐，精心挑选食材，用心烹饪；为了一个小小的梦想，全力以赴，努力拼搏；为了与家人朋友的一次相聚，认真准备，尽情享受。<br>当我们把生活中的每一件小事都当作大事来做时，就会发现，幸福其实就在我们身边，触手可及。</p>
+<h2 id="5、平衡现实与理想：奏响生活的乐章"><a href="#5、平衡现实与理想：奏响生活的乐章" class="headerlink" title="5、平衡现实与理想：奏响生活的乐章"></a>5、平衡现实与理想：奏响生活的乐章</h2><p>林语堂很聪明，他既懂得享受生活，又能应对世俗的压力。他从不被理想主义困住，而是将理想融入现实，找到了属于自己的生活节奏和步伐。<br>在现实生活中，我们常常面临着理想与现实的矛盾与冲突。一方面，我们有着美好的理想和憧憬，渴望实现自己的人生价值；另一方面，现实的压力却让我们不得不低头妥协。<br>而林语堂的人生哲学告诉我们，现实和理想并不对立，它们是幸福的两翼。我们不能只沉浸在理想的世界中，不顾现实的困境；也不能为了现实的利益，放弃自己的理想。只有将理想与现实相结合，找到它们之间的平衡点，才能让自己的生活更加充实和有意义。<br>就像林语堂一样，在追求文学梦想的同时，也能在现实生活中找到乐趣和满足，用智慧去平衡现实与理想，奏响属于自己的生活乐章。</p>
+<h2 id="6、发现美：感悟生活的幸福"><a href="#6、发现美：感悟生活的幸福" class="headerlink" title="6、发现美：感悟生活的幸福"></a>6、发现美：感悟生活的幸福</h2><p>林语堂说过：“最懂幸福的人，不是拥有最多的人，而是能发现最多美的人。” 在我们的生活中，美无处不在，只是需要我们用心去发现。<br>一片叶子的飘落，一朵花儿的绽放，一段温暖的话语，一个善意的微笑，都是生活中的美好瞬间。当我们拥有一双发现美的眼睛时，就会发现，幸福其实很简单，它就在我们身边的每一个角落。<br>那些能够在平凡中发现美的人，总是能感受到更多的幸福。因为他们懂得珍惜生活中的每一份美好，用心去感悟生活的点滴，用爱去温暖自己的心灵。<br>正如林语堂所说：“幸福不是拥有，而是发现和感知。” 让我们学会像林语堂一样，用心去发现生活中的美，用爱去感悟生活的幸福，让自己的生活充满诗意与美好。<br>在这个快节奏的时代，让我们停下匆忙的脚步，去拥有一个有趣的灵魂，一份简单的热爱，一种淡然的心态，学会小题大做，用智慧平衡现实与理想，用心去发现生活中的美。<br>相信在不久的将来，我们都能找到属于自己的幸福密码，开启一段充满诗意与美好的人生旅程。</p>
+]]></content>
+      <tags>
+        <tag>人生智慧</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>产品经理AI助手</title>
+    <url>/2025/02/26/%E4%BA%A7%E5%93%81%E7%BB%8F%E7%90%86AI%E5%8A%A9%E6%89%8B/</url>
+    <content><![CDATA[]]></content>
+      <tags>
+        <tag>AI</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title>当浓缩接触到冰水，如此迷人</title>
+    <url>/2019/05/24/%E5%BD%93%E6%B5%93%E7%BC%A9%E6%8E%A5%E8%A7%A6%E5%88%B0%E5%86%B0%E6%B0%B4%EF%BC%8C%E5%A6%82%E6%AD%A4%E8%BF%B7%E4%BA%BA/</url>
+    <content><![CDATA[<h2 id=""><a href="#" class="headerlink" title=""></a></h2><p>平时不怎么喝咖啡，如果喝那肯定就是美式了，那是简单即美味，萃取经典浓缩咖啡，以水调和，香气浓郁蔓溢。</p>
+<h4 id="冰美式-Americano"><a href="#冰美式-Americano" class="headerlink" title="冰美式 Americano"></a>冰美式 Americano</h4><p>热美式冷了会变酸，温度的改变会影响咖啡的酸度，所以在炎炎夏日，肯定是想来一杯沁凉畅快的冰美式。<br>冰美式没有热美式那么多花哨的名字，区别就在于冰的多少。</p>
+<p>冰美式又不同于热美式，不那么苦；而且浓缩加到杯子里只跟水混合，所以随着时间会慢慢的变淡。没想到当浓缩咖啡接触到冰水，竟然如此迷人。</p>
+<p>还有一种更“冷酷”的方式：在杯子里加满冰块，然后直接把炽热的浓缩咖啡液浇在冰块上。当冰块慢慢融化，咖啡味道也随之由浓转淡，呈现出更多细致的风味</p>
+]]></content>
+      <tags>
+        <tag>随笔</tag>
       </tags>
   </entry>
 </search>
