@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.3.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/avatar.jpeg">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/avatar.jpeg">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/avatar.jpeg">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css" integrity="sha256-VHqXKFhhMxcpubYf9xiWdCiojEbY9NexQ4jh8AxbvcM=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"maiko.github.io","root":"/","images":"/images","scheme":"Gemini","darkmode":false,"version":"8.24.1","exturl":false,"sidebar":{"position":"left","width_expanded":320,"width_dual_column":240,"display":"post","padding":18,"offset":12},"hljswrap":true,"codeblock":{"theme":{"light":"default","dark":"stackoverflow-dark"},"prism":{"light":"prism","dark":"prism-dark"},"copy_button":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"language":false},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":"gitalk","storage":true,"lazyload":false,"nav":{"gitalk":{"order":-1}},"activeClass":"gitalk"},"stickytabs":false,"motion":{"enable":true,"async":false,"duration":200,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"搜索...","empty":"没有找到任何搜索结果：${query}","hits_time":"找到 ${hits} 个搜索结果（用时 ${time} 毫秒）","hits":"找到 ${hits} 个搜索结果"},"path":"/search.xml","localsearch":{"enable":true,"top_n_per_article":5,"unescape":false,"preload":true,"trigger":"auto"}}</script><script src="/js/config.js" defer></script>
+
+    <meta name="description" content="记录Hexo博客添加访问统计和文章摘要预览功能的完整配置过程，包含详细的配置代码和实现效果">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo博客配置优化记录 - 访问统计与文章摘要功能实现">
+<meta property="og:url" content="https://maiko.github.io/2025/08/30/Hexo%E5%8D%9A%E5%AE%A2%E9%85%8D%E7%BD%AE%E4%BC%98%E5%8C%96%E8%AE%B0%E5%BD%95/index.html">
+<meta property="og:site_name" content="MaikoTalks">
+<meta property="og:description" content="记录Hexo博客添加访问统计和文章摘要预览功能的完整配置过程，包含详细的配置代码和实现效果">
+<meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2025-08-30T12:30:00.000Z">
+<meta property="article:modified_time" content="2025-08-30T12:30:00.000Z">
+<meta property="article:author" content="Maiko">
+<meta property="article:tag" content="Hexo">
+<meta property="article:tag" content="博客优化">
+<meta property="article:tag" content="Next主题">
+<meta property="article:tag" content="访问统计">
+<meta property="article:tag" content="文章摘要">
+<meta property="article:tag" content="技术记录">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://maiko.github.io/2025/08/30/Hexo%E5%8D%9A%E5%AE%A2%E9%85%8D%E7%BD%AE%E4%BC%98%E5%8C%96%E8%AE%B0%E5%BD%95/">
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"zh-CN","comments":true,"permalink":"https://maiko.github.io/2025/08/30/Hexo%E5%8D%9A%E5%AE%A2%E9%85%8D%E7%BD%AE%E4%BC%98%E5%8C%96%E8%AE%B0%E5%BD%95/","path":"2025/08/30/Hexo博客配置优化记录/","title":"Hexo博客配置优化记录 - 访问统计与文章摘要功能实现"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>Hexo博客配置优化记录 - 访问统计与文章摘要功能实现 | MaikoTalks</title>
+  
+
+
+
+
+
+
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous" defer></script>
+<script src="/js/utils.js" defer></script><script src="/js/motion.js" defer></script><script src="/js/sidebar.js" defer></script><script src="/js/next-boot.js" defer></script>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/hexo-generator-searchdb/1.5.0/search.js" integrity="sha256-xFC6PJ82SL9b3WkGjFavNiA9gm5z6UBxWPiu4CYjptg=" crossorigin="anonymous" defer></script>
+<script src="/js/third-party/search/local-search.js" defer></script>
+
+
+
+
+
+
+
+  
+  <script async src="https://busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="切换导航栏" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">MaikoTalks</p>
+      <i class="logo-line"></i>
+    </a>
+      <p class="site-subtitle" itemprop="description">专注于AI、产品、技术的个人博客</p>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="搜索" role="button">
+        <i class="fa fa-search fa-fw fa-lg"></i>
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>首页</a></li><li class="menu-item menu-item-about"><a href="/about/" rel="section"><i class="fa fa-user fa-fw"></i>关于</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>标签</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>分类</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>归档</a></li><li class="menu-item menu-item-links"><a href="/links/" rel="section"><i class="fa fa-link fa-fw"></i>links</a></li>
+      <li class="menu-item menu-item-search">
+        <a role="button" class="popup-trigger"><i class="fa fa-search fa-fw"></i>搜索
+        </a>
+      </li>
+  </ul>
+</nav>
+
+
+
+  <div class="search-pop-overlay">
+    <div class="popup search-popup">
+      <div class="search-header">
+        <span class="search-icon">
+          <i class="fa fa-search"></i>
+        </span>
+        <div class="search-input-container">
+          <input autocomplete="off" autocapitalize="off" maxlength="80"
+                placeholder="搜索..." spellcheck="false"
+                type="search" class="search-input">
+        </div>
+        <span class="popup-btn-close" role="button">
+          <i class="fa fa-times-circle"></i>
+        </span>
+      </div>
+      <div class="search-result-container">
+        <div class="search-result-icon">
+          <i class="fa fa-spinner fa-pulse fa-5x"></i>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          文章目录
+        </li>
+        <li class="sidebar-nav-overview">
+          站点概览
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Hexo%E5%8D%9A%E5%AE%A2%E9%85%8D%E7%BD%AE%E4%BC%98%E5%8C%96%E8%AE%B0%E5%BD%95-%F0%9F%93%9D"><span class="nav-number">1.</span> <span class="nav-text">Hexo博客配置优化记录 📝</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#%F0%9F%8E%AF-%E4%BC%98%E5%8C%96%E9%9C%80%E6%B1%82%E4%B8%8E%E7%9B%AE%E6%A0%87"><span class="nav-number">1.1.</span> <span class="nav-text">🎯 优化需求与目标</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%A0%B8%E5%BF%83%E9%9C%80%E6%B1%82"><span class="nav-number">1.1.1.</span> <span class="nav-text">核心需求</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%A2%84%E6%9C%9F%E6%95%88%E6%9E%9C"><span class="nav-number">1.1.2.</span> <span class="nav-text">预期效果</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%F0%9F%93%8A-%E5%8A%9F%E8%83%BD%E4%B8%80%EF%BC%9A%E8%AE%BF%E9%97%AE%E7%BB%9F%E8%AE%A1%E5%AE%9E%E7%8E%B0"><span class="nav-number">1.2.</span> <span class="nav-text">📊 功能一：访问统计实现</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#1-1-%E9%80%89%E6%8B%A9%E7%BB%9F%E8%AE%A1%E6%9C%8D%E5%8A%A1"><span class="nav-number">1.2.1.</span> <span class="nav-text">1.1 选择统计服务</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-2-%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E4%BF%AE%E6%94%B9"><span class="nav-number">1.2.2.</span> <span class="nav-text">1.2 配置文件修改</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#1-3-%E5%AE%9E%E7%8E%B0%E6%95%88%E6%9E%9C"><span class="nav-number">1.2.3.</span> <span class="nav-text">1.3 实现效果</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%F0%9F%93%96-%E5%8A%9F%E8%83%BD%E4%BA%8C%EF%BC%9A%E6%96%87%E7%AB%A0%E6%91%98%E8%A6%81%E9%A2%84%E8%A7%88"><span class="nav-number">1.3.</span> <span class="nav-text">📖 功能二：文章摘要预览</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#2-1-Hexo%E4%B8%BB%E9%85%8D%E7%BD%AE%E4%BC%98%E5%8C%96"><span class="nav-number">1.3.1.</span> <span class="nav-text">2.1 Hexo主配置优化</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-2-Next%E4%B8%BB%E9%A2%98%E6%91%98%E8%A6%81%E9%85%8D%E7%BD%AE"><span class="nav-number">1.3.2.</span> <span class="nav-text">2.2 Next主题摘要配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#2-3-%E6%89%8B%E5%8A%A8%E6%91%98%E8%A6%81%E6%A0%87%E7%AD%BE%E6%B7%BB%E5%8A%A0"><span class="nav-number">1.3.3.</span> <span class="nav-text">2.3 手动摘要标签添加</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%F0%9F%94%A7-%E9%85%8D%E7%BD%AE%E8%BF%87%E7%A8%8B%E4%B8%AD%E7%9A%84%E9%97%AE%E9%A2%98%E4%B8%8E%E8%A7%A3%E5%86%B3"><span class="nav-number">1.4.</span> <span class="nav-text">🔧 配置过程中的问题与解决</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%97%AE%E9%A2%981%EF%BC%9AYAML%E9%85%8D%E7%BD%AE%E9%87%8D%E5%A4%8D%E9%94%AE%E9%94%99%E8%AF%AF"><span class="nav-number">1.4.1.</span> <span class="nav-text">问题1：YAML配置重复键错误</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%97%AE%E9%A2%982%EF%BC%9A%E6%96%87%E6%9C%AC%E5%8C%B9%E9%85%8D%E5%A4%B1%E8%B4%A5"><span class="nav-number">1.4.2.</span> <span class="nav-text">问题2：文本匹配失败</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%F0%9F%93%88-%E6%95%88%E6%9E%9C%E9%AA%8C%E8%AF%81%E4%B8%8E%E6%B5%8B%E8%AF%95"><span class="nav-number">1.5.</span> <span class="nav-text">📈 效果验证与测试</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%AA%8C%E8%AF%81%E6%96%B9%E6%B3%95"><span class="nav-number">1.5.1.</span> <span class="nav-text">验证方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%AA%8C%E8%AF%81%E7%BB%93%E6%9E%9C"><span class="nav-number">1.5.2.</span> <span class="nav-text">验证结果</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%F0%9F%9A%80-%E9%83%A8%E7%BD%B2%E4%B8%8E%E5%8F%91%E5%B8%83"><span class="nav-number">1.6.</span> <span class="nav-text">🚀 部署与发布</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%94%9F%E6%88%90%E9%9D%99%E6%80%81%E6%96%87%E4%BB%B6"><span class="nav-number">1.6.1.</span> <span class="nav-text">生成静态文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9C%AC%E5%9C%B0%E9%A2%84%E8%A7%88"><span class="nav-number">1.6.2.</span> <span class="nav-text">本地预览</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%83%A8%E7%BD%B2%E5%88%B0GitHub-Pages"><span class="nav-number">1.6.3.</span> <span class="nav-text">部署到GitHub Pages</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%F0%9F%93%8B-%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6%E5%AE%8C%E6%95%B4%E8%AE%B0%E5%BD%95"><span class="nav-number">1.7.</span> <span class="nav-text">📋 配置文件完整记录</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#config-yml-%E5%85%B3%E9%94%AE%E9%85%8D%E7%BD%AE"><span class="nav-number">1.7.1.</span> <span class="nav-text">_config.yml 关键配置</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#config-next-yml-%E5%85%B3%E9%94%AE%E9%85%8D%E7%BD%AE"><span class="nav-number">1.7.2.</span> <span class="nav-text">_config.next.yml 关键配置</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%F0%9F%92%A1-%E7%BB%8F%E9%AA%8C%E6%80%BB%E7%BB%93%E4%B8%8E%E6%9C%80%E4%BD%B3%E5%AE%9E%E8%B7%B5"><span class="nav-number">1.8.</span> <span class="nav-text">💡 经验总结与最佳实践</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E9%85%8D%E7%BD%AE%E4%BC%98%E5%8C%96%E7%BB%8F%E9%AA%8C"><span class="nav-number">1.8.1.</span> <span class="nav-text">配置优化经验</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%91%98%E8%A6%81%E6%A0%87%E7%AD%BE%E4%BD%BF%E7%94%A8%E6%8A%80%E5%B7%A7"><span class="nav-number">1.8.2.</span> <span class="nav-text">摘要标签使用技巧</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E8%AE%BF%E9%97%AE%E7%BB%9F%E8%AE%A1%E4%BC%98%E5%8C%96%E5%BB%BA%E8%AE%AE"><span class="nav-number">1.8.3.</span> <span class="nav-text">访问统计优化建议</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%F0%9F%94%AE-%E5%90%8E%E7%BB%AD%E4%BC%98%E5%8C%96%E8%AE%A1%E5%88%92"><span class="nav-number">1.9.</span> <span class="nav-text">🔮 后续优化计划</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E5%BE%85%E5%AE%9E%E7%8E%B0%E5%8A%9F%E8%83%BD"><span class="nav-number">1.9.1.</span> <span class="nav-text">待实现功能</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%BB%B4%E6%8A%A4%E5%BB%BA%E8%AE%AE"><span class="nav-number">1.9.2.</span> <span class="nav-text">维护建议</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%F0%9F%93%9A-%E5%8F%82%E8%80%83%E8%B5%84%E6%BA%90"><span class="nav-number">1.10.</span> <span class="nav-text">📚 参考资源</span></a></li></ol></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="Maiko"
+      src="/images/avatar.jpeg">
+  <p class="site-author-name" itemprop="name">Maiko</p>
+  <div class="site-description" itemprop="description">初心易得，始终难守</div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">11</span>
+          <span class="site-state-item-name">日志</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">7</span>
+        <span class="site-state-item-name">分类</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">35</span>
+        <span class="site-state-item-name">标签</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/bmwu" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;bmwu" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="https://telegram.me/maikou/" title="Telegram → https:&#x2F;&#x2F;telegram.me&#x2F;maikou&#x2F;" rel="noopener me" target="_blank"><i class="fab fa-telegram fa-fw"></i>Telegram</a>
+      </span>
+      <span class="links-of-author-item">
+        <a href="mailto:bmwu.hz@gmail.com" title="E-Mail → mailto:bmwu.hz@gmail.com" rel="noopener me" target="_blank"><i class="fa fa-envelope fa-fw"></i>E-Mail</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="zh-CN">
+    <link itemprop="mainEntityOfPage" href="https://maiko.github.io/2025/08/30/Hexo%E5%8D%9A%E5%AE%A2%E9%85%8D%E7%BD%AE%E4%BC%98%E5%8C%96%E8%AE%B0%E5%BD%95/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="/images/avatar.jpeg">
+      <meta itemprop="name" content="Maiko">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="MaikoTalks">
+      <meta itemprop="description" content="初心易得，始终难守">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="Hexo博客配置优化记录 - 访问统计与文章摘要功能实现 | MaikoTalks">
+      <meta itemprop="description" content="记录Hexo博客添加访问统计和文章摘要预览功能的完整配置过程，包含详细的配置代码和实现效果">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          Hexo博客配置优化记录 - 访问统计与文章摘要功能实现
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">发表于</span>
+
+      <time title="创建时间：2025-08-30 20:30:00" itemprop="dateCreated datePublished" datetime="2025-08-30T20:30:00+08:00">2025-08-30</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">分类于</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/" itemprop="url" rel="index"><span itemprop="name">技术笔记</span></a>
+        </span>
+    </span>
+
+  
+    <span class="post-meta-item" title="阅读次数" id="busuanzi_container_page_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="post-meta-item-text">阅读次数：</span>
+      <span id="busuanzi_value_page_pv"></span>
+    </span>
+</div>
+
+            <div class="post-description">记录Hexo博客添加访问统计和文章摘要预览功能的完整配置过程，包含详细的配置代码和实现效果</div>
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><h1 id="Hexo博客配置优化记录-📝"><a href="#Hexo博客配置优化记录-📝" class="headerlink" title="Hexo博客配置优化记录 📝"></a>Hexo博客配置优化记录 📝</h1><blockquote>
+<p><strong>更新时间</strong>：2025年8月30日<br><strong>优化目标</strong>：为博客添加访问统计功能 + 文章摘要预览功能<br><strong>技术栈</strong>：Hexo + Next主题 + 不蒜子统计服务</p>
+</blockquote>
+<p>本文记录了对MaikoTalks博客进行的两项重要功能优化，旨在提升用户体验和博客数据分析能力。</p>
+<span id="more"></span>
+
+<h2 id="🎯-优化需求与目标"><a href="#🎯-优化需求与目标" class="headerlink" title="🎯 优化需求与目标"></a>🎯 优化需求与目标</h2><h3 id="核心需求"><a href="#核心需求" class="headerlink" title="核心需求"></a>核心需求</h3><ol>
+<li><strong>📊 访问统计功能</strong> - 为每篇文章和整站添加访问量统计</li>
+<li><strong>📖 文章摘要预览</strong> - 首页只显示文章摘要，而非全文内容</li>
+</ol>
+<h3 id="预期效果"><a href="#预期效果" class="headerlink" title="预期效果"></a>预期效果</h3><ul>
+<li>✅ 网站总访客量和总浏览量显示</li>
+<li>✅ 每篇文章的阅读次数统计</li>
+<li>✅ 首页文章预览优化，提升加载速度</li>
+<li>✅ 更好的用户阅读体验</li>
+</ul>
+<h2 id="📊-功能一：访问统计实现"><a href="#📊-功能一：访问统计实现" class="headerlink" title="📊 功能一：访问统计实现"></a>📊 功能一：访问统计实现</h2><h3 id="1-1-选择统计服务"><a href="#1-1-选择统计服务" class="headerlink" title="1.1 选择统计服务"></a>1.1 选择统计服务</h3><p>选择**不蒜子（Busuanzi）**作为访问统计服务：</p>
+<ul>
+<li>✅ 免费且稳定</li>
+<li>✅ 与Next主题完美集成</li>
+<li>✅ 支持多种统计指标</li>
+<li>✅ 无需注册，即插即用</li>
+</ul>
+<h3 id="1-2-配置文件修改"><a href="#1-2-配置文件修改" class="headerlink" title="1.2 配置文件修改"></a>1.2 配置文件修改</h3><p><strong>文件位置</strong>：<code>_config.next.yml</code></p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Busuanzi count - 不蒜子访问统计</span></span><br><span class="line"><span class="attr">busuanzi_count:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span>                    <span class="comment"># 启用访问统计</span></span><br><span class="line">  <span class="attr">total_visitors:</span> <span class="literal">true</span>           <span class="comment"># 显示总访客量</span></span><br><span class="line">  <span class="attr">total_visitors_icon:</span> <span class="string">fa</span> <span class="string">fa-user</span> <span class="comment"># 访客量图标</span></span><br><span class="line">  <span class="attr">total_views:</span> <span class="literal">true</span>              <span class="comment"># 显示总浏览量  </span></span><br><span class="line">  <span class="attr">total_views_icon:</span> <span class="string">fa</span> <span class="string">fa-eye</span>    <span class="comment"># 浏览量图标</span></span><br><span class="line">  <span class="attr">post_views:</span> <span class="literal">true</span>               <span class="comment"># 显示文章阅读次数</span></span><br><span class="line">  <span class="attr">post_views_icon:</span> <span class="string">fa</span> <span class="string">fa-eye</span>     <span class="comment"># 文章阅读图标</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="1-3-实现效果"><a href="#1-3-实现效果" class="headerlink" title="1.3 实现效果"></a>1.3 实现效果</h3><p><strong>页脚显示</strong>：</p>
+<ul>
+<li>👥 总访客量：显示独立访客数</li>
+<li>👁️ 总浏览量：显示页面访问总数</li>
+</ul>
+<p><strong>文章页面</strong>：</p>
+<ul>
+<li>👁️ 阅读次数：每篇文章的具体阅读量</li>
+</ul>
+<h2 id="📖-功能二：文章摘要预览"><a href="#📖-功能二：文章摘要预览" class="headerlink" title="📖 功能二：文章摘要预览"></a>📖 功能二：文章摘要预览</h2><h3 id="2-1-Hexo主配置优化"><a href="#2-1-Hexo主配置优化" class="headerlink" title="2.1 Hexo主配置优化"></a>2.1 Hexo主配置优化</h3><p><strong>文件位置</strong>：<code>_config.yml</code></p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Auto excerpt settings - 自动摘要配置</span></span><br><span class="line"><span class="attr">excerpt:</span></span><br><span class="line">  <span class="attr">depth:</span> <span class="number">2</span>                      <span class="comment"># 摘要深度</span></span><br><span class="line">  <span class="attr">excerpt_excludes:</span> []          <span class="comment"># 排除的标签</span></span><br><span class="line">  <span class="attr">more_excludes:</span> []             <span class="comment"># 排除的more标签</span></span><br><span class="line">  <span class="attr">hideWholePostExcerpts:</span> <span class="literal">true</span>   <span class="comment"># 隐藏完整文章内容</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="2-2-Next主题摘要配置"><a href="#2-2-Next主题摘要配置" class="headerlink" title="2.2 Next主题摘要配置"></a>2.2 Next主题摘要配置</h3><p><strong>文件位置</strong>：<code>_config.next.yml</code></p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Auto excerpt settings - 主题摘要设置</span></span><br><span class="line"><span class="attr">excerpt:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span>                  <span class="comment"># 启用摘要功能</span></span><br><span class="line">  <span class="attr">length:</span> <span class="number">150</span>                   <span class="comment"># 自动摘要长度（字符数）</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="2-3-手动摘要标签添加"><a href="#2-3-手动摘要标签添加" class="headerlink" title="2.3 手动摘要标签添加"></a>2.3 手动摘要标签添加</h3><p>为重要文章添加 <code>&lt;!-- more --&gt;</code> 手动分割标签：</p>
+<p><strong>已优化文章列表</strong>：</p>
+<ol>
+<li>✅ <code>环球旅行终极计划表.md</code></li>
+<li>✅ <code>防AI淘汰指南.md</code></li>
+<li>✅ <code>幸福密码，有趣的灵魂做有趣的人.md</code></li>
+<li>✅ <code>DeepSeek-学习手册.md</code></li>
+</ol>
+<p><strong>标签位置策略</strong>：</p>
+<ul>
+<li>在文章介绍段落之后</li>
+<li>在详细内容之前</li>
+<li>确保摘要包含足够的吸引力</li>
+</ul>
+<p><strong>示例代码</strong>：</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">---</span><br><span class="line">title: 文章标题</span><br><span class="line"><span class="section">date: 2025-08-30</span></span><br><span class="line"><span class="section">---</span></span><br><span class="line"></span><br><span class="line"><span class="section">## 文章介绍</span></span><br><span class="line">这里是文章的核心介绍内容，会在首页显示。</span><br><span class="line"></span><br><span class="line">&lt;!-- more --&gt;</span><br><span class="line"></span><br><span class="line"><span class="section">## 详细内容</span></span><br><span class="line">这里是文章的详细内容，只有点击&quot;阅读全文&quot;才会显示。</span><br></pre></td></tr></table></figure>
+
+<h2 id="🔧-配置过程中的问题与解决"><a href="#🔧-配置过程中的问题与解决" class="headerlink" title="🔧 配置过程中的问题与解决"></a>🔧 配置过程中的问题与解决</h2><h3 id="问题1：YAML配置重复键错误"><a href="#问题1：YAML配置重复键错误" class="headerlink" title="问题1：YAML配置重复键错误"></a>问题1：YAML配置重复键错误</h3><p><strong>错误信息</strong>：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">YAMLException: duplicated mapping key (180:1)</span><br><span class="line">post_meta:</span><br></pre></td></tr></table></figure>
+
+<p><strong>解决方案</strong>：<br>删除 <code>_config.next.yml</code> 中重复的 <code>post_meta</code> 配置项，保留第一个配置。</p>
+<p><strong>修复代码</strong>：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 删除重复的配置项</span></span><br><span class="line"><span class="comment"># Post meta display settings</span></span><br><span class="line"><span class="attr">post_meta:</span></span><br><span class="line">  <span class="attr">item_text:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">created_at:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">updated_at:</span></span><br><span class="line">    <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">    <span class="attr">another_day:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">categories:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="问题2：文本匹配失败"><a href="#问题2：文本匹配失败" class="headerlink" title="问题2：文本匹配失败"></a>问题2：文本匹配失败</h3><p><strong>原因</strong>：文件编码或特殊字符导致search_replace操作失败</p>
+<p><strong>解决方案</strong>：</p>
+<ol>
+<li>重新读取文件内容确认准确文本</li>
+<li>使用精确的文本匹配</li>
+<li>确保特殊字符正确转义</li>
+</ol>
+<h2 id="📈-效果验证与测试"><a href="#📈-效果验证与测试" class="headerlink" title="📈 效果验证与测试"></a>📈 效果验证与测试</h2><h3 id="验证方法"><a href="#验证方法" class="headerlink" title="验证方法"></a>验证方法</h3><p>使用curl命令测试本地服务器：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># 检查访问统计是否加载</span></span><br><span class="line">curl -s http://localhost:4000 | grep -A 5 -B 5 <span class="string">&quot;busuanzi&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 检查文章摘要是否正常</span></span><br><span class="line">curl -s http://localhost:4000 | grep -A 10 -B 5 <span class="string">&quot;阅读全文&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># 检查单篇文章统计</span></span><br><span class="line">curl -s <span class="string">&quot;http://localhost:4000/2025/02/11/DeepSeek-学习手册/&quot;</span> | grep <span class="string">&quot;busuanzi_value_page_pv&quot;</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="验证结果"><a href="#验证结果" class="headerlink" title="验证结果"></a>验证结果</h3><p>✅ <strong>访问统计</strong>：不蒜子脚本正常加载，统计元素正确显示<br>✅ <strong>文章摘要</strong>：首页显示摘要内容和”阅读全文”按钮<br>✅ <strong>文章统计</strong>：单篇文章页面显示阅读次数  </p>
+<h2 id="🚀-部署与发布"><a href="#🚀-部署与发布" class="headerlink" title="🚀 部署与发布"></a>🚀 部署与发布</h2><h3 id="生成静态文件"><a href="#生成静态文件" class="headerlink" title="生成静态文件"></a>生成静态文件</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> /Users/wubin/【麦口】/maikoTalks/maiko.github.io</span><br><span class="line">hexo clean          <span class="comment"># 清理缓存</span></span><br><span class="line">hexo generate        <span class="comment"># 生成静态文件</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="本地预览"><a href="#本地预览" class="headerlink" title="本地预览"></a>本地预览</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo server          <span class="comment"># 启动本地服务器</span></span><br><span class="line"><span class="comment"># 访问 http://localhost:4000 预览效果</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="部署到GitHub-Pages"><a href="#部署到GitHub-Pages" class="headerlink" title="部署到GitHub Pages"></a>部署到GitHub Pages</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo deploy          <span class="comment"># 部署到线上环境</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="📋-配置文件完整记录"><a href="#📋-配置文件完整记录" class="headerlink" title="📋 配置文件完整记录"></a>📋 配置文件完整记录</h2><h3 id="config-yml-关键配置"><a href="#config-yml-关键配置" class="headerlink" title="_config.yml 关键配置"></a>_config.yml 关键配置</h3><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Home page setting</span></span><br><span class="line"><span class="attr">index_generator:</span></span><br><span class="line">  <span class="attr">path:</span> <span class="string">&#x27;&#x27;</span></span><br><span class="line">  <span class="attr">per_page:</span> <span class="number">10</span></span><br><span class="line">  <span class="attr">order_by:</span> <span class="string">-date</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Auto excerpt settings</span></span><br><span class="line"><span class="attr">excerpt:</span></span><br><span class="line">  <span class="attr">depth:</span> <span class="number">2</span></span><br><span class="line">  <span class="attr">excerpt_excludes:</span> []</span><br><span class="line">  <span class="attr">more_excludes:</span> []</span><br><span class="line">  <span class="attr">hideWholePostExcerpts:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+
+<h3 id="config-next-yml-关键配置"><a href="#config-next-yml-关键配置" class="headerlink" title="_config.next.yml 关键配置"></a>_config.next.yml 关键配置</h3><figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Busuanzi count</span></span><br><span class="line"><span class="attr">busuanzi_count:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">total_visitors:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">total_visitors_icon:</span> <span class="string">fa</span> <span class="string">fa-user</span></span><br><span class="line">  <span class="attr">total_views:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">total_views_icon:</span> <span class="string">fa</span> <span class="string">fa-eye</span></span><br><span class="line">  <span class="attr">post_views:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">post_views_icon:</span> <span class="string">fa</span> <span class="string">fa-eye</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Auto excerpt settings</span></span><br><span class="line"><span class="attr">excerpt:</span></span><br><span class="line">  <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">length:</span> <span class="number">150</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Post meta display settings</span></span><br><span class="line"><span class="attr">post_meta:</span></span><br><span class="line">  <span class="attr">item_text:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">created_at:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">updated_at:</span></span><br><span class="line">    <span class="attr">enable:</span> <span class="literal">true</span></span><br><span class="line">    <span class="attr">another_day:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">categories:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="💡-经验总结与最佳实践"><a href="#💡-经验总结与最佳实践" class="headerlink" title="💡 经验总结与最佳实践"></a>💡 经验总结与最佳实践</h2><h3 id="配置优化经验"><a href="#配置优化经验" class="headerlink" title="配置优化经验"></a>配置优化经验</h3><ol>
+<li><strong>备份重要文件</strong> - 修改配置前务必备份</li>
+<li><strong>逐步测试</strong> - 每次修改后立即测试效果</li>
+<li><strong>避免重复配置</strong> - 检查YAML文件中的重复键</li>
+<li><strong>文本编码注意</strong> - 确保文件编码一致性</li>
+</ol>
+<h3 id="摘要标签使用技巧"><a href="#摘要标签使用技巧" class="headerlink" title="摘要标签使用技巧"></a>摘要标签使用技巧</h3><ul>
+<li>📝 <strong>位置选择</strong>：在引人入胜的介绍之后</li>
+<li>📏 <strong>长度控制</strong>：摘要部分150-300字为宜  </li>
+<li>🎯 <strong>内容质量</strong>：确保摘要有足够吸引力</li>
+<li>🔄 <strong>定期优化</strong>：根据访问数据调整摘要内容</li>
+</ul>
+<h3 id="访问统计优化建议"><a href="#访问统计优化建议" class="headerlink" title="访问统计优化建议"></a>访问统计优化建议</h3><ul>
+<li>📊 <strong>数据分析</strong>：定期查看统计数据，了解热门文章</li>
+<li>🎨 <strong>样式调整</strong>：可根据主题风格自定义统计显示样式</li>
+<li>🔒 <strong>隐私考虑</strong>：不蒜子统计不涉及用户隐私，安全可靠</li>
+</ul>
+<h2 id="🔮-后续优化计划"><a href="#🔮-后续优化计划" class="headerlink" title="🔮 后续优化计划"></a>🔮 后续优化计划</h2><h3 id="待实现功能"><a href="#待实现功能" class="headerlink" title="待实现功能"></a>待实现功能</h3><ol>
+<li><strong>🎨 自定义统计样式</strong> - 优化访问统计的显示效果</li>
+<li><strong>📱 移动端适配</strong> - 确保统计在手机端正常显示</li>
+<li><strong>📈 更多统计维度</strong> - 添加标签访问、分类统计等</li>
+<li><strong>🎯 SEO优化</strong> - 基于访问数据进行SEO优化</li>
+</ol>
+<h3 id="维护建议"><a href="#维护建议" class="headerlink" title="维护建议"></a>维护建议</h3><ul>
+<li>定期检查不蒜子服务状态</li>
+<li>监控页面加载速度影响</li>
+<li>根据用户反馈调整摘要长度</li>
+<li>持续优化文章质量</li>
+</ul>
+<h2 id="📚-参考资源"><a href="#📚-参考资源" class="headerlink" title="📚 参考资源"></a>📚 参考资源</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://hexo.io/docs/">Hexo官方文档</a></li>
+<li><a target="_blank" rel="noopener" href="https://theme-next.js.org/">Next主题文档</a></li>
+<li><a target="_blank" rel="noopener" href="http://ibruce.info/2015/04/04/busuanzi/">不蒜子统计服务</a></li>
+<li><a target="_blank" rel="noopener" href="https://yaml.org/spec/1.2/spec.html">YAML语法指南</a></li>
+</ul>
+<hr>
+<p><strong>总结</strong>：通过本次配置优化，MaikoTalks博客成功实现了访问统计和文章摘要功能，大大提升了用户体验和博客的专业性。所有配置均基于开源免费方案，具有很好的可维护性和扩展性。</p>
+<p><em>记录时间：2025年8月30日</em><br><em>下次优化：根据访问数据和用户反馈进行进一步优化</em> 📈</p>
+
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="reward-container">
+  <div>请我一杯咖啡吧！</div>
+  <button>
+    赞赏
+  </button>
+  <div class="post-reward">
+      <div>
+        <img src="/images/wechatpay.jpg" alt="Maiko 微信">
+        <span>微信</span>
+      </div>
+      <div>
+        <img src="/images/alipay.jpg" alt="Maiko 支付宝">
+        <span>支付宝</span>
+      </div>
+
+  </div>
+</div>
+
+          <div class="post-tags">
+              <a href="/tags/Hexo/" rel="tag"># Hexo</a>
+              <a href="/tags/%E5%8D%9A%E5%AE%A2%E4%BC%98%E5%8C%96/" rel="tag"># 博客优化</a>
+              <a href="/tags/Next%E4%B8%BB%E9%A2%98/" rel="tag"># Next主题</a>
+              <a href="/tags/%E8%AE%BF%E9%97%AE%E7%BB%9F%E8%AE%A1/" rel="tag"># 访问统计</a>
+              <a href="/tags/%E6%96%87%E7%AB%A0%E6%91%98%E8%A6%81/" rel="tag"># 文章摘要</a>
+              <a href="/tags/%E6%8A%80%E6%9C%AF%E8%AE%B0%E5%BD%95/" rel="tag"># 技术记录</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2025/08/29/%E7%8E%AF%E7%90%83%E6%97%85%E8%A1%8C%E7%BB%88%E6%9E%81%E8%AE%A1%E5%88%92%E8%A1%A8/" rel="prev" title="20年环球旅行终极计划表 - 带娃家庭现实版">
+                  <i class="fa fa-angle-left"></i> 20年环球旅行终极计划表 - 带娃家庭现实版
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+    <div class="comments gitalk-container"></div>
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 2017 – 
+    <span itemprop="copyrightYear">2025</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">Maiko</span>
+  </div>
+<div class="busuanzi-count">
+    <span class="post-meta-item" id="busuanzi_container_site_uv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-user"></i>
+      </span>
+      <span class="site-uv" title="总访客量">
+        <span id="busuanzi_value_site_uv"></span>
+      </span>
+    </span>
+    <span class="post-meta-item" id="busuanzi_container_site_pv">
+      <span class="post-meta-item-icon">
+        <i class="fa fa-eye"></i>
+      </span>
+      <span class="site-pv" title="总访问量">
+        <span id="busuanzi_value_site_pv"></span>
+      </span>
+    </span>
+</div>
+  <div class="powered-by">由 <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/" rel="noopener" target="_blank">NexT.Gemini</a> 强力驱动
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="toggle sidebar-toggle" role="button">
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+    <span class="toggle-line"></span>
+  </div>
+  <div class="sidebar-dimmer"></div>
+  <div class="back-to-top" role="button" aria-label="返回顶部">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.8.0/gitalk.css" integrity="sha256-AJnUHL7dBv6PGaeyPQJcgQPDjt/Hn/PvYZde1iqfp8U=" crossorigin="anonymous">
+
+<script class="next-config" data-name="gitalk" type="application/json">{"enable":true,"github_id":"bmwu","repo":"maiko.github.io","client_id":null,"client_secret":null,"admin_user":"bmwu","distraction_free_mode":true,"proxy":"https://cors-anywhere.azm.workers.dev/https://github.com/login/oauth/access_token","language":null,"perPage":10,"pagerDirection":"last","create_issue_manually":false,"js":{"url":"https://cdnjs.cloudflare.com/ajax/libs/gitalk/1.8.0/gitalk.min.js","integrity":"sha256-MVK9MGD/XJaGyIghSVrONSnoXoGh3IFxLw0zfvzpxR4="},"path_md5":"61660cc0fb0bbaf9ee4f49ba9d5df64e"}</script>
+<script src="/js/third-party/comments/gitalk.js" defer></script>
+
+</body>
+</html>
